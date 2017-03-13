@@ -1,0 +1,23 @@
+*, *:after, *:before {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body div {
+  background-color: pink;
+}
+
+img {
+  width: 100%;
+}
+
+b, strong {
+  -webkit-font-smoothing: antialiased;
+}
+
+.clearfix {
+  clear: both;
+}
+
+/*# sourceMappingURL=styles.css.map */
