@@ -1,0 +1,17 @@
+.hero {
+  width: 60%;
+  margin: auto;
+  position: relative; }
+  .hero__body {
+    min-height: 200px; }
+  .hero__change-btn {
+    width: 100%;
+    margin-top: 20px; }
+
+.main-div {
+  display: none; }
+
+.active {
+  display: block; }
+
+/*# sourceMappingURL=_hero.css.map */

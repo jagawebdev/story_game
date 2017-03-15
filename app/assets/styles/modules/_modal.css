@@ -1,0 +1,42 @@
+#modal-close {
+  display: none; }
+
+.modal_body {
+  background-color: rgba(255, 255, 255, 0.9);
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  color: #FF6694;
+  font-size: 1.5rem;
+  text-align: center; }
+.modal__content {
+  position: fixed;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%);
+  text-align: center; }
+.modal__instruction {
+  color: #00ADA3;
+  font-size: 1.2rem;
+  margin-top: 0;
+  margin-bottom: 4rem; }
+  .modal__instruction-margin-b {
+    margin-bottom: 15px; }
+.modal__username {
+  font-weight: bolder;
+  font-size: 4rem; }
+.modal__user-image {
+  width: 250px;
+  margin: auto; }
+.modal__start-btn {
+  width: 100%; }
+.modal__close-btn {
+  position: absolute;
+  right: 15px;
+  transform: translateY(50%);
+  z-index: 3; }
+
+/*# sourceMappingURL=_modal.css.map */

@@ -1,9 +1,6 @@
 *, *:after, *:before {
   box-sizing: border-box; }
 
-body div {
-  background-color: maroon; }
-
 img {
   width: 100%; }
 
@@ -12,3 +9,104 @@ b, strong {
 
 .clearfix {
   clear: both; }
+
+body {
+  background-color: #f6f6f6;
+  font-size: 1.5rem;
+  font-family: 'Chelsea Market', cursive;
+  margin: 0; }
+
+.clearfix {
+  clear: both; }
+
+button {
+  color: #f6f6f6;
+  font-size: 1.5rem;
+  background-color: #00ADA3;
+  padding: 15px 15px;
+  margin-top: 20px !important;
+  border: none; }
+  button:hover {
+    background-color: #FF6694; }
+
+.warning-msg {
+  display: none;
+  font-size: 1rem;
+  color: red; }
+
+button:focus {
+  outline: 0; }
+
+input:focus {
+  outline: 0; }
+
+input {
+  width: 95%;
+  padding: 5px 5px;
+  font-size: 1.5rem;
+  color: #FF6694; }
+
+#modal-close {
+  display: none; }
+
+.modal_body {
+  background-color: rgba(255, 255, 255, 0.9);
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  color: #FF6694;
+  font-size: 1.5rem;
+  text-align: center; }
+
+.modal__content {
+  position: fixed;
+  top: 20%;
+  left: 50%;
+  -webkit-transform: translate(-50%);
+          transform: translate(-50%);
+  text-align: center; }
+
+.modal__instruction {
+  color: #00ADA3;
+  font-size: 1.2rem;
+  margin-top: 0;
+  margin-bottom: 4rem; }
+  .modal__instruction-margin-b {
+    margin-bottom: 15px; }
+
+.modal__username {
+  font-weight: bolder;
+  font-size: 4rem; }
+
+.modal__user-image {
+  width: 250px;
+  margin: auto; }
+
+.modal__start-btn {
+  width: 100%; }
+
+.modal__close-btn {
+  position: absolute;
+  right: 15px;
+  -webkit-transform: translateY(50%);
+          transform: translateY(50%);
+  z-index: 3; }
+
+.hero {
+  width: 60%;
+  margin: auto;
+  position: relative; }
+  .hero__body {
+    min-height: 200px; }
+  .hero__change-btn {
+    width: 100%;
+    margin-top: 20px; }
+
+.main-div {
+  display: none; }
+
+.active {
+  display: block; }
