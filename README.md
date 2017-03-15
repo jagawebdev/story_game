@@ -1,4 +1,6 @@
-#Starter Kit for c9
+Web Starter Kit
 
-###1. npm install
-###2. npm install webpack -g
+Includes: Sass, Normalize, Browser-sync, WebPack, Gulp and cool plugins.
+
+1. npm install
+2. npm install webpack -g

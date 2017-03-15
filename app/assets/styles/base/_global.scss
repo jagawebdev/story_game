@@ -6,7 +6,7 @@
 
 body {
     div{
-        background-color: pink;
+        background-color: maroon;
     }
 }
 
@@ -21,6 +21,8 @@ b, strong {
 .clearfix {
   clear: both;
 }
+
+
 @media screen and (max-width: 768px) {
     //Do something
 }

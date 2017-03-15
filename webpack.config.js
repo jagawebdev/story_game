@@ -3,5 +3,13 @@ module.exports = {
     output: {
         path: "./app/temp/assets/scripts",
         filename: "scripts.js"
+    },
+    module: {
+      rules: [
+        {
+          test: /\.css$/,
+          use: ['style-loader', 'css-loader']
+        }
+      ]
     }
 };

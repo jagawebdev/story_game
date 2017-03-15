@@ -1,4 +1,3 @@
 var $ = require("jquery");
-
-$(document).ready(function() {
-});
+require("../../../node_modules/normalize.css");
+require("./modules/loginModal");

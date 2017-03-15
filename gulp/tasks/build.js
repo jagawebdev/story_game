@@ -3,14 +3,25 @@ del = require("del"),
 usemin = require("gulp-usemin"),
 cssmin = require("gulp-cssmin"),
 imagemin = require("gulp-imagemin"),
-uglify = require("gulp-uglify");
+uglify = require("gulp-uglify"),
+browserSync = require("browser-sync").create();
+
+gulp.task("previewDist", function(){
+  browserSync.init({
+    notify: false,
+    server: {
+      baseDir: "docs"
+    }
+  });
+
+});
 
 gulp.task("del", function() {
-   return del("./docs"); 
+   return del("./docs");
 });
 
 gulp.task("useminTrigger", ["del"], function() {
-   gulp.start("usemin"); 
+   gulp.start("usemin");
 });
 
 
