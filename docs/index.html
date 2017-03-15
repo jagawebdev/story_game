@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8" http-equiv="Content-Type" content="text/html">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Kids game to create their own story, word by word">
+
+    <link href="https://fonts.googleapis.com/css?family=Chelsea+Market" rel="stylesheet">
+
+    <!-- HTML5 shiv and Respond.js IE8 support of HTML5 elements and media queries -->
+		<!--[if lt IE 9]>
+		<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+		<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+	<![endif]-->
+
+    <title>Create Your Own Story</title>
+
+    <link rel="stylesheet" href="assets/styles/styles.css"/>
+</head>
+
+<body>
+    <div class="hero">
+		<p class="hero__username">hello <strong><span class="username-title"></span></strong></p>
+		<p class="hero__instruction">Read carefully and change the story, word by word.</p>
+		
+		<div class="hero__body">
+		
+			<div id="div1" class="main-div one active">
+				<p>I like to shower in the rain . But , if my big brother is sleeping I can not shower loud . 
+				</br></br> My mom likes to hear me shower because she thinks I shower tree .</p>
+			</div>
+			
+			<div id="div2" class="main-div two">
+				<p>My favorite TV show is news . My mom lets me eat it after I finish my job . 
+				</br></br> I like to eat news with my brother because he always makes funny comments about the characters . </p>
+			</div>
+			
+			<div id="div3" class="main-div three">
+				<p>I like to play guitar . My dad is always impressed with my guitar skills . 
+				</br></br> My mom is teaching my brother a guitar too , and he is getting really bad at it .</p>
+			</div>
+			
+			<div id="div4" class="main-div four">
+				<p>I love school. My aunt is a cubs fan . My friends are very nice and I like to sing with them . 
+				</br></br> Sometimes I get very sad if I don't have any pants becasue I love lots of pants .</p>
+			</div>
+			
+			<div id="div5" class="main-div five">
+				<p>Me and my brother loves to eat book . My baby sister is too small to eat book right now . 
+				</br></br> He only likes his flower. </p>
+			</div>
+			
+			<div id="div6" class="main-div six">
+				<p>I like my hair dirty. Everynight , my mom braids my hair to make it dirty . 
+				</br></br> When my hair is dirty it feels like a soft bread . </p>
+			</div>
+			
+			<div id="div7" class="main-div seven">
+				<p>I love my dad alot . He is a hard worker and always buys us a tasty doll . 
+				</br></br> He also likes to tshirt . Sometimes he draw us a pepsi , but only sometimes .</p> 
+			</div>
+			
+			<div id="div8" class="main-div eight">
+				<p>My favorite holiday is singing , because I get lots of hats . 
+				</br></br> And Santa loves bread and juice . I do too . </p> 
+			</div>
+			
+		</div><!-- hero -->
+		
+		<div class="hero__btns">
+			<button target="1" class="btn__pink">1</button>
+			<button target="2">2</button>
+			<button target="3">3</button>
+			<button target="4">4</button>
+			<button target="5">5</button>
+			<button target="6">6</button>
+			<button target="7">7</button>
+			<button target="8">8</button>
+			<button target="8" class="hero__done-btn" data-target="modal">Done</button>
+		</div>
+		
+		<div class="hero__input-container">
+			<h3 class="hero__input-container-title">Change this word</h3>
+			<input class="change-this"/>
+			<div class="warning-msg hero__error-choose-word">Please choose a word!</div>
+			<div class="warning-msg hero__error-not-found">This word is not found in this story.</div>
+		</div>
+		
+		<div class="hero__input-container">
+			<h3 class="hero__input-container-title">To this word</h3>
+			<input class="to-this"/>
+		</div>
+		
+		<button class="hero__change-btn">Change</button>
+	</div>
+	
+	<!--Greeting/Open Modal-->
+	<div id="modal-open" class="modal modal_body">
+		<div class="modal__content">
+			<p class="modal__instruction modal__instruction-margin-b">Please, type in your name to start</p>
+			<input class="modal__input" type="text"/>
+			<div class="warning-msg modal__warning-msg">Please, enter your name!</div>
+			<div class="clearfix"></div>
+			<button class="modal__start-btn">Start</button>	
+		</div>
+	</div>
+	
+	<!--Close Modal-->
+	<div id="modal-close" class="modal modal_body">
+		<div class="modal__content">
+		    <span class="modal__close-btn">X</span>
+			<img src="assets/images/flowershy.png" class="modal__user-image"/>
+			<div class="clearfix"></div>
+			<p>Great Job!<br/></br>Keep Being Amazing </p>
+			<span class="modal__username username-title"></span>
+		</div>
+	</div>
+	
+    <script src="assets/scripts/scripts.js"></script>
+</body>
+</html>

@@ -58,6 +58,9 @@
         z-index: 3;
         cursor: pointer;
         color: $lightBlue;
+        &:hover {
+            color: $softPink;
+        }
     }
     
     &-open {

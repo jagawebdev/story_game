@@ -9,10 +9,10 @@ Error: Undefined variable: "$lightWhite".
 19: body {
 20:     background-color: $lightWhite;
 21:     font-size: 1.5rem;
-22:     font-family: 'Chelsea Market', cursive;
+22:     font-family: 'Chelsea Market', arial, serif;
 23:     margin: 0;
 24:     overflow-x: hidden;
-25: }
+25:     position: relative;
 
 Backtrace:
 /home/ubuntu/workspace/app/assets/styles/base/_global.scss:20
@@ -65,4 +65,4 @@ Backtrace:
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: Undefined variable: \"$lightWhite\".\A         on line 20 of /home/ubuntu/workspace/app/assets/styles/base/_global.scss\A \A 15: .clearfix {\A 16:   clear: both;\A 17: }\A 18: \A 19: body {\A 20:     background-color: $lightWhite;\A 21:     font-size: 1.5rem;\A 22:     font-family: 'Chelsea Market', cursive;\A 23:     margin: 0;\A 24:     overflow-x: hidden;\A 25: }"; }
+  content: "Error: Undefined variable: \"$lightWhite\".\A         on line 20 of /home/ubuntu/workspace/app/assets/styles/base/_global.scss\A \A 15: .clearfix {\A 16:   clear: both;\A 17: }\A 18: \A 19: body {\A 20:     background-color: $lightWhite;\A 21:     font-size: 1.5rem;\A 22:     font-family: 'Chelsea Market', arial, serif;\A 23:     margin: 0;\A 24:     overflow-x: hidden;\A 25:     position: relative;"; }

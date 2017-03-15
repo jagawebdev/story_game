@@ -2,20 +2,13 @@ var $ = require("jquery");
 
 $(document).ready(function() {
     
-    $(".modal").on("show", function () {
-      $("body").addClass("modal-open");
-    }).on("hidden", function () {
-      $("body").removeClass("modal-open");
-    });
-    
     $(".hero__btns button").click(function(){
         $(this).siblings().removeClass("btn__pink");
         $(this).addClass("btn__pink");
         $(".main-div").hide();
         
         $('#div'+$(this).attr('target')).show();
-        
-        $(".change-this").focus(); 
+    
         $(".hero__error-choose-word").hide();
         $(".hero__error-not-found").hide();
     });
