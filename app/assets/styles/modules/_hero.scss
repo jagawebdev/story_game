@@ -7,17 +7,38 @@
         min-height: 200px;
     }
     
+    &__username {
+        font-size: 4rem;
+        color: #FF6694;
+        margin-bottom: 0;
+    }
+    
+    &__instruction {
+        color: $lightBlue;
+        font-size: 1.2rem;
+        margin-top: 0;
+        margin-bottom: 4rem;
+    }
+    
     &__change-btn {
         width: 100%;
         margin-top: 20px;
     }
-}
-
-
-.main-div {
-    display: none;
-}
-
-.active {
-    display: block;
+    
+    &__input-container {
+        width: 50%;
+        float: left;
+        margin-top: 45px;
+        &-title {
+            margin: 0;
+        }
+    }
+    
+    &__error-choose-word, &__error-not-found {
+        display: none;
+    }
+    
+    .main-div {
+        display: none;
+    }
 }

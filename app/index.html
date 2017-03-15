@@ -22,8 +22,8 @@
 
 <body>
     <div class="hero">
-		<p id="greeting">hello <strong><span class="username-title"></span></strong></p>
-		<p class="instruction">Read carefully and change the story, <span class="underline">word by word.</span></p>
+		<p class="hero__username">hello <strong><span class="username-title"></span></strong></p>
+		<p class="hero__instruction">Read carefully and change the story, word by word.</p>
 		
 		<div class="hero__body">
 		
@@ -69,8 +69,8 @@
 			
 		</div><!-- hero -->
 		
-		<div class="div-buttons">
-			<button target="1" class="blue">1</button>
+		<div class="hero__btns">
+			<button target="1" class="btn__pink">1</button>
 			<button target="2">2</button>
 			<button target="3">3</button>
 			<button target="4">4</button>
@@ -78,18 +78,18 @@
 			<button target="6">6</button>
 			<button target="7">7</button>
 			<button target="8">8</button>
-			<button target="8" class="done btn" data-target="modal">Done</button>
+			<button target="8" class="hero__done-btn" data-target="modal">Done</button>
 		</div>
 		
-		<div class="input-div">
-			<h3>Change this word</h3>
+		<div class="hero__input-container">
+			<h3 class="hero__input-container-title">Change this word</h3>
 			<input class="change-this"/>
-			<div class="warning-msg error-choose-word">Please choose a word!</div>
-			<div class="warning-msg error-not-found">This word is not found in this story.</div>
+			<div class="warning-msg hero__error-choose-word">Please choose a word!</div>
+			<div class="warning-msg hero__error-not-found">This word is not found in this story.</div>
 		</div>
 		
-		<div class="input-div">
-			<h3>To this word</h3>
+		<div class="hero__input-container">
+			<h3 class="hero__input-container-title">To this word</h3>
 			<input class="to-this"/>
 		</div>
 		
@@ -109,12 +109,12 @@
 	
 	<!--Close Modal-->
 	<div id="modal-close" class="modal modal_body">
-	    <span class="modal__close-btn">X</span>
 		<div class="modal__content">
-			<img src="flowershy.png" class="modal__user-image"/>
+		    <span class="modal__close-btn">X</span>
+			<img src="assets/images/flowershy.png" class="modal__user-image"/>
 			<div class="clearfix"></div>
-			Keep Being Amazing </br>
-			<span class="modal__username"></span>
+			<p>Great Job!<br/></br>Keep Being Amazing </p>
+			<span class="modal__username username-title"></span>
 		</div>
 	</div>
 	

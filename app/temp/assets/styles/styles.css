@@ -25,9 +25,13 @@ button {
   background-color: #00ADA3;
   padding: 15px 15px;
   margin-top: 20px !important;
-  border: none; }
+  border: none;
+  cursor: pointer; }
   button:hover {
     background-color: #FF6694; }
+
+.btn__pink {
+  background-color: red; }
 
 .warning-msg {
   display: none;
@@ -45,6 +49,9 @@ input {
   padding: 5px 5px;
   font-size: 1.5rem;
   color: #FF6694; }
+
+.highlight {
+  background-color: yellow; }
 
 #modal-close {
   display: none; }
@@ -90,10 +97,15 @@ input {
 
 .modal__close-btn {
   position: absolute;
-  right: 15px;
+  font-size: 3rem;
+  font-weight: bolder;
+  right: -55px;
+  top: -55px;
   -webkit-transform: translateY(50%);
           transform: translateY(50%);
-  z-index: 3; }
+  z-index: 3;
+  cursor: pointer;
+  color: #00ADA3; }
 
 .hero {
   width: 60%;
@@ -101,9 +113,26 @@ input {
   position: relative; }
   .hero__body {
     min-height: 200px; }
+  .hero__username {
+    font-size: 4rem;
+    color: #FF6694;
+    margin-bottom: 0; }
+  .hero__instruction {
+    color: #00ADA3;
+    font-size: 1.2rem;
+    margin-top: 0;
+    margin-bottom: 4rem; }
   .hero__change-btn {
     width: 100%;
     margin-top: 20px; }
+  .hero__input-container {
+    width: 50%;
+    float: left;
+    margin-top: 45px; }
+    .hero__input-container-title {
+      margin: 0; }
+  .hero__error-choose-word, .hero__error-not-found {
+    display: none; }
 
 .main-div {
   display: none; }

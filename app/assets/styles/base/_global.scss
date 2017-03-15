@@ -16,16 +16,12 @@ b, strong {
   clear: both;
 }
 
-
-@media screen and (max-width: 768px) {
-    //Do something
-}
-
 body {
-    background-color: #f6f6f6;
+    background-color: $lightWhite;
     font-size: 1.5rem;
     font-family: 'Chelsea Market', cursive;
     margin: 0;
+    overflow-x: hidden;
 }
 
 .clearfix {
@@ -35,13 +31,18 @@ body {
 button {
     color: #f6f6f6;
     font-size: 1.5rem;
-    background-color: #00ADA3;
+    background-color: $lightBlue;
     padding: 15px 15px;
     margin-top: 20px !important;
     border: none;
+    cursor: pointer;
     &:hover {
-        background-color: #FF6694;
+        background-color: $softPink;
     }
+}
+
+.btn__pink {
+    background-color: $softPink;
 }
 
 .warning-msg {
@@ -58,78 +59,13 @@ input {
     width: 95%;
     padding: 5px 5px;
     font-size: 1.5rem;
-    color: #FF6694;
+    color: $softPink;
 }
 
-// .input-div {
-//     width: 50%;
-//     float: left;
-//     margin-top: 45px;
-// }
+.highlight {
+    background-color: yellow;
+}
 
-// .input-div h3 {
-//     margin: 0;
-// }
-
-// .instruction {
-//     color: #00ADA3;
-//     font-size: 1.2rem;
-//     margin-top: 0;
-//     margin-bottom: 4rem;
-// }
-
-// #greeting {
-//     font-size: 4rem;
-//     color: #FF6694;
-//     margin-bottom: 0;
-// }
-
-
-
-
-
-// .div-buttons button {
-//     padding: 10px 15px;
-//     margin: 5px;
-// }
-
-// .div-buttons button:hover {
-//     cursor: pointer;
-// }
-
-// .div-buttons {
-//     display: inline-block;
-// }
-
-
-
-// .blue {
-//     background-color: #00ADA3;
-// }
-
-// .highlight {
-//     background-color: yellow;
-// }
-
-// .error-x {
-//     display: none;
-// }
-
-// .error-msg, .error-warning {
-//     display: none;
-//     font-size: 1rem;
-//     color: red;
-// }
-
-// .open-warning {
-//     display: none;
-//     font-size: 1rem;
-//     color: red;
-// }
-
-
-
-
-
-
-
+.active {
+    display: block;
+}

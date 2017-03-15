@@ -2,16 +2,22 @@ var $ = require("jquery");
 
 $(document).ready(function() {
     
-    $(".div-buttons button").click(function(){
-        $(this).siblings().removeClass("blue");
-        $(this).addClass("blue");
+    $(".modal").on("show", function () {
+      $("body").addClass("modal-open");
+    }).on("hidden", function () {
+      $("body").removeClass("modal-open");
+    });
+    
+    $(".hero__btns button").click(function(){
+        $(this).siblings().removeClass("btn__pink");
+        $(this).addClass("btn__pink");
         $(".main-div").hide();
         
         $('#div'+$(this).attr('target')).show();
         
         $(".change-this").focus(); 
-        $(".error-choose-word").hide();
-        $(".error-not-found").hide();
+        $(".hero__error-choose-word").hide();
+        $(".hero__error-not-found").hide();
     });
     
     //put each word in span tag
@@ -31,10 +37,10 @@ $(document).ready(function() {
     //***********VALIDATION**************//
     $('.change-this').blur(function() {
         if( !$(this).val() ) {
-            $(".error-choose-word").show();
-            $(".error-not-found").hide(); 
+            $(".hero__error-choose-word").show();
+            $(".hero__error-not-found").hide(); 
         }else{
-            $(".error-choose-word").hide();
+            $(".hero__error-choose-word").hide();
         }
     });
   
@@ -42,7 +48,7 @@ $(document).ready(function() {
     //When to-this input gets clicked highlight matched words
     $(".to-this").on("click keyup", function() {
         
-        $(".error-not-found").hide(); 
+        $(".hero__error-not-found").hide(); 
         
         $(".highlight").removeClass("highlight");
         
@@ -57,14 +63,14 @@ $(document).ready(function() {
         });
         
         if( !$(".main-div:visible span").hasClass("highlight")){
-            $(".error-not-found").show();
+            $(".hero__error-not-found").show();
             $(".change-this").focus(); 
         }
         
         
         if(event.keyCode === 13){
               $(".hero__change-btn").click();
-              $(".error-not-found").hide(); 
+              $(".hero__error-not-found").hide(); 
           }
     });
     
@@ -78,12 +84,12 @@ $(document).ready(function() {
         }
         
         $(".change-this").focus(); 
-        $(".error-not-found").hide(); 
-        $(".input-div input").val('');
+        $(".hero__error-not-found").hide(); 
+        $(".hero__input-container input").val('');
     });
     
     //modal
-    $(".done").click(function() {
+    $(".hero__done-btn").click(function() {
         $("#modal-close").show(); 
     });
     
