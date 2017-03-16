@@ -178,6 +178,11 @@ input {
     @media only screen and (max-width: 480px) {
       .hero__instruction {
         margin-bottom: 2rem; } }
+  .hero__btns button {
+    margin-right: 10px; }
+    @media only screen and (max-width: 480px) {
+      .hero__btns button {
+        margin-right: 5px; } }
   .hero__change-btn {
     width: 100%;
     margin-top: 20px; }
@@ -187,7 +192,7 @@ input {
     margin-top: 45px; }
     .hero__input-container-title {
       margin: 0; }
-    @media only screen and (max-width: 768px) {
+    @media only screen and (max-width: 897px) {
       .hero__input-container {
         width: 100%; } }
     @media only screen and (max-width: 768px) {

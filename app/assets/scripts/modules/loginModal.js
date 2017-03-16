@@ -1,7 +1,23 @@
 var $ = require("jquery");
+var stories = require("../json/stories.json");
 
 $(document).ready(function() {
+    //json
+    for(var i = 0; i < stories.length; i++){
+        console.log(stories[i].story);
+        $(".hero__body").append('<div id="div' + i + '" class="main-div"><p>' + stories[i].story + '</p></div>');
+    }
     
+    $(".hero__body").children().eq(0).addClass("active");
+    
+    for(var ii = 0; ii < $(".hero__body").children().length; ii++) {
+        var buttonNumber = ii + 1;
+        $(".visible-btns").append('<button target="'+ii+'">'+buttonNumber+'</button>');
+    }
+    
+    $(".visible-btns").children().eq(0).addClass("btn__pink");
+    
+    //buttons to display div stories
     $(".hero__btns button").click(function(){
         $(this).siblings().removeClass("btn__pink");
         $(this).addClass("btn__pink");

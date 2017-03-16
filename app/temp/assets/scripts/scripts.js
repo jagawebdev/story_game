@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 11);
+/******/ 	return __webpack_require__(__webpack_require__.s = 12);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -10298,9 +10298,25 @@ return jQuery;
 /***/ (function(module, exports, __webpack_require__) {
 
 var $ = __webpack_require__(0);
+var stories = __webpack_require__(5);
 
 $(document).ready(function() {
+    //json
+    for(var i = 0; i < stories.length; i++){
+        console.log(stories[i].story);
+        $(".hero__body").append('<div id="div' + i + '" class="main-div"><p>' + stories[i].story + '</p></div>');
+    }
     
+    $(".hero__body").children().eq(0).addClass("active");
+    
+    for(var ii = 0; ii < $(".hero__body").children().length; ii++) {
+        var buttonNumber = ii + 1;
+        $(".visible-btns").append('<button target="'+ii+'">'+buttonNumber+'</button>');
+    }
+    
+    $(".visible-btns").children().eq(0).addClass("btn__pink");
+    
+    //buttons to display div stories
     $(".hero__btns button").click(function(){
         $(this).siblings().removeClass("btn__pink");
         $(this).addClass("btn__pink");
@@ -10436,7 +10452,7 @@ exports.example = "";
 var content = __webpack_require__(3);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // add the styles to the DOM
-var update = __webpack_require__(5)(content, {});
+var update = __webpack_require__(6)(content, {});
 if(content.locals) module.exports = content.locals;
 // Hot Module Replacement
 if(false) {
@@ -10546,10 +10562,23 @@ function toComment(sourceMap) {
   return '/*# ' + data + ' */';
 }
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(7).Buffer))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(8).Buffer))
 
 /***/ }),
 /* 5 */
+/***/ (function(module, exports) {
+
+module.exports = [
+	{
+		"story": "I know Santa loves bread and juice and he leaves socks under the Christmas picture ."
+	},
+	{
+		"story": "Dog has 10 legs and they can sing really fast . Cats have curly furs and they like to drink tea ."
+	}
+];
+
+/***/ }),
+/* 6 */
 /***/ (function(module, exports) {
 
 /*
@@ -10801,7 +10830,7 @@ function updateLink(linkElement, obj) {
 
 
 /***/ }),
-/* 6 */
+/* 7 */
 /***/ (function(module, exports) {
 
 var g;
@@ -10828,7 +10857,7 @@ module.exports = g;
 
 
 /***/ }),
-/* 7 */
+/* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10842,9 +10871,9 @@ module.exports = g;
 
 
 
-var base64 = __webpack_require__(8)
-var ieee754 = __webpack_require__(9)
-var isArray = __webpack_require__(10)
+var base64 = __webpack_require__(9)
+var ieee754 = __webpack_require__(10)
+var isArray = __webpack_require__(11)
 
 exports.Buffer = Buffer
 exports.SlowBuffer = SlowBuffer
@@ -12622,10 +12651,10 @@ function isnan (val) {
   return val !== val // eslint-disable-line no-self-compare
 }
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(6)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(7)))
 
 /***/ }),
-/* 8 */
+/* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12746,7 +12775,7 @@ function fromByteArray (uint8) {
 
 
 /***/ }),
-/* 9 */
+/* 10 */
 /***/ (function(module, exports) {
 
 exports.read = function (buffer, offset, isLE, mLen, nBytes) {
@@ -12836,7 +12865,7 @@ exports.write = function (buffer, value, offset, isLE, mLen, nBytes) {
 
 
 /***/ }),
-/* 10 */
+/* 11 */
 /***/ (function(module, exports) {
 
 var toString = {}.toString;
@@ -12847,7 +12876,7 @@ module.exports = Array.isArray || function (arr) {
 
 
 /***/ }),
-/* 11 */
+/* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var $ = __webpack_require__(0);
