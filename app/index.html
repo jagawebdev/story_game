@@ -20,8 +20,9 @@
     <!-- endbuild -->
 </head>
 
-<body>
+<body class="modal-show">
     <div class="hero">
+    	<div class="hero__user-avator"></div>
 		<p class="hero__username">hello <strong><span class="username-title"></span></strong></p>
 		<p class="hero__instruction">Read carefully and change the story, word by word.</p>
 		
@@ -78,7 +79,7 @@
 			<button target="6">6</button>
 			<button target="7">7</button>
 			<button target="8">8</button>
-			<button target="8" class="hero__done-btn" data-target="modal">Done</button>
+			<button class="hero__done-btn" data-target="modal">Done</button>
 		</div>
 		
 		<div class="hero__input-container">
@@ -102,6 +103,8 @@
 			<p class="modal__instruction modal__instruction-margin-b">Please, type in your name to start</p>
 			<input class="modal__input" type="text"/>
 			<div class="warning-msg modal__warning-msg">Please, enter your name!</div>
+			<img src="assets/images/flowershy.png" class="modal__open-user-image"/>
+			<img src="assets/images/train.png" class="modal__open-user-image"/>
 			<div class="clearfix"></div>
 			<button class="modal__start-btn">Start</button>	
 		</div>
@@ -111,7 +114,7 @@
 	<div id="modal-close" class="modal modal_body">
 		<div class="modal__content">
 		    <span class="modal__close-btn">X</span>
-			<img src="assets/images/flowershy.png" class="modal__user-image"/>
+		    <div class="modal__close-user-image"></div>
 			<div class="clearfix"></div>
 			<p>Great Job!<br/></br>Keep Being Amazing </p>
 			<span class="modal__username username-title"></span>

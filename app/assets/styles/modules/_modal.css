@@ -1,21 +1,21 @@
 /*
 Error: Undefined variable: "$lightBlue".
-        on line 25 of /home/ubuntu/workspace/app/assets/styles/modules/_modal.scss
+        on line 27 of /home/ubuntu/workspace/app/assets/styles/modules/_modal.scss
 
-20:         position: fixed;
-21:         top: 20%;
-22:         left: 50%;
-23:         transform: translate(-50%);
-24:         text-align: center;
-25:         color: $lightBlue;
-26:     }
-27:     
-28:     &__instruction {
-29:         font-size: 1.2rem;
-30:         margin-top: 0;
+22:         top: 20%;
+23:         left: 50%;
+24:         width: 280px;
+25:         transform: translate(-50%);
+26:         text-align: center;
+27:         color: $lightBlue;
+28:     }
+29:     
+30:     &__instruction {
+31:         font-size: 1.2rem;
+32:         margin-top: 0;
 
 Backtrace:
-/home/ubuntu/workspace/app/assets/styles/modules/_modal.scss:25
+/home/ubuntu/workspace/app/assets/styles/modules/_modal.scss:27
 /nix/store/zmisxnl63ica4zaviifixamr3xg27kzp-ruby-2.3.1-p0/lib/ruby/gems/2.3.0/gems/sass-3.4.23/lib/sass/script/tree/variable.rb:49:in `_perform'
 /nix/store/zmisxnl63ica4zaviifixamr3xg27kzp-ruby-2.3.1-p0/lib/ruby/gems/2.3.0/gems/sass-3.4.23/lib/sass/script/tree/node.rb:58:in `perform'
 /nix/store/zmisxnl63ica4zaviifixamr3xg27kzp-ruby-2.3.1-p0/lib/ruby/gems/2.3.0/gems/sass-3.4.23/lib/sass/tree/visitors/perform.rb:397:in `visit_prop'
@@ -76,4 +76,4 @@ Backtrace:
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: Undefined variable: \"$lightBlue\".\A         on line 25 of /home/ubuntu/workspace/app/assets/styles/modules/_modal.scss\A \A 20:         position: fixed;\A 21:         top: 20%;\A 22:         left: 50%;\A 23:         transform: translate(-50%);\A 24:         text-align: center;\A 25:         color: $lightBlue;\A 26:     }\A 27:     \A 28:     &__instruction {\A 29:         font-size: 1.2rem;\A 30:         margin-top: 0;"; }
+  content: "Error: Undefined variable: \"$lightBlue\".\A         on line 27 of /home/ubuntu/workspace/app/assets/styles/modules/_modal.scss\A \A 22:         top: 20%;\A 23:         left: 50%;\A 24:         width: 280px;\A 25:         transform: translate(-50%);\A 26:         text-align: center;\A 27:         color: $lightBlue;\A 28:     }\A 29:     \A 30:     &__instruction {\A 31:         font-size: 1.2rem;\A 32:         margin-top: 0;"; }

@@ -17,6 +17,9 @@ body {
   margin: 0;
   overflow-x: hidden;
   position: relative; }
+  @media only screen and (max-width: 480px) {
+    body {
+      font-size: 1rem; } }
 
 .clearfix {
   clear: both; }
@@ -50,7 +53,8 @@ input {
   width: 95%;
   padding: 5px 5px;
   font-size: 1.5rem;
-  color: #FF6694; }
+  color: #FF6694;
+  border: 3px #FF6694 solid; }
 
 .highlight {
   background-color: yellow; }
@@ -60,7 +64,7 @@ input {
 
 .modal_body {
   background-color: rgba(255, 255, 255, 0.9);
-  position: absolute;
+  position: fixed;
   top: 0;
   bottom: 0;
   left: 0;
@@ -68,12 +72,14 @@ input {
   z-index: 2;
   font-size: 1.5rem;
   text-align: center;
-  height: 100%; }
+  height: 100%;
+  overflow: auto; }
 
 .modal__content {
-  position: fixed;
+  position: absolute;
   top: 20%;
   left: 50%;
+  width: 280px;
   -webkit-transform: translate(-50%);
           transform: translate(-50%);
   text-align: center;
@@ -90,9 +96,25 @@ input {
   font-weight: bolder;
   font-size: 4rem; }
 
-.modal__user-image {
-  width: 250px;
+.modal__open-user-image {
+  width: 80px;
+  height: 80px;
+  margin-top: 30px;
+  border: 3px solid #00ADA3;
+  border-radius: 15px;
+  padding: 5px;
+  cursor: pointer; }
+  .modal__open-user-image:hover {
+    border: 3px solid #FF6694; }
+  .modal__open-user-image:last-of-type {
+    margin-left: 15px; }
+
+.modal__close-user-image {
+  width: 150px;
   margin: auto; }
+  @media only screen and (max-width: 480px) {
+    .modal__close-user-image {
+      width: 150px; } }
 
 .modal__start-btn {
   width: 100%; }
@@ -101,34 +123,61 @@ input {
   position: absolute;
   font-size: 3rem;
   font-weight: bolder;
-  right: -55px;
+  right: 0;
   top: -55px;
   -webkit-transform: translateY(50%);
           transform: translateY(50%);
   z-index: 3;
   cursor: pointer;
-  color: #00ADA3; }
+  color: #FF6694; }
   .modal__close-btn:hover {
-    color: #FF6694; }
+    color: #00ADA3; }
+  @media only screen and (max-width: 480px) {
+    .modal__close-btn {
+      font-size: 2rem;
+      top: -55px; } }
 
-.modal-open {
+.modal-hide {
+  display: none; }
+
+.modal-show {
   overflow: hidden; }
+
+.modal .pink-border {
+  border: 3px solid #FF6694; }
 
 .hero {
   width: 60%;
   margin: auto;
-  position: relative; }
+  position: relative;
+  padding: 30px 0 60px; }
+  @media only screen and (max-width: 480px) {
+    .hero {
+      width: 90%; } }
   .hero__body {
     min-height: 200px; }
+    @media only screen and (max-width: 480px) {
+      .hero__body {
+        min-height: auto;
+        padding-bottom: 25px; } }
+  .hero__user-avator {
+    width: 60px; }
   .hero__username {
     font-size: 4rem;
     color: #FF6694;
-    margin-bottom: 0; }
+    margin-bottom: 0;
+    margin-top: 1rem; }
+    @media only screen and (max-width: 480px) {
+      .hero__username {
+        font-size: 2rem; } }
   .hero__instruction {
     color: #00ADA3;
     font-size: 1.2rem;
     margin-top: 0;
     margin-bottom: 4rem; }
+    @media only screen and (max-width: 480px) {
+      .hero__instruction {
+        margin-bottom: 2rem; } }
   .hero__change-btn {
     width: 100%;
     margin-top: 20px; }
@@ -138,6 +187,12 @@ input {
     margin-top: 45px; }
     .hero__input-container-title {
       margin: 0; }
+    @media only screen and (max-width: 768px) {
+      .hero__input-container {
+        width: 100%; } }
+    @media only screen and (max-width: 768px) {
+      .hero__input-container:last-of-type {
+        margin-top: 20px; } }
   .hero__error-choose-word, .hero__error-not-found {
     display: none; }
   .hero .main-div {

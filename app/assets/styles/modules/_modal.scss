@@ -5,7 +5,7 @@
 .modal{
     &_body {
         background-color: rgba(255,255,255,.9);
-        position: absolute;
+        position: fixed;
         top: 0;
         bottom: 0;
         left: 0;
@@ -14,12 +14,14 @@
         font-size: 1.5rem;
         text-align: center;
         height: 100%;
+        overflow: auto;
     }
     
     &__content {
-        position: fixed;
+        position: absolute;
         top: 20%;
         left: 50%;
+        width: 280px;
         transform: translate(-50%);
         text-align: center;
         color: $lightBlue;
@@ -39,9 +41,28 @@
         font-size: 4rem;
     }
     
-    &__user-image {
-        width: 250px;
+    &__open-user-image {
+        width: 80px;
+        height: 80px;
+        margin-top: 30px;
+        border: 3px solid $lightBlue;
+        border-radius: 15px;
+        padding: 5px;
+        cursor: pointer;
+        &:hover {
+            border: 3px solid $softPink;
+        }
+        &:last-of-type {
+            margin-left: 15px;
+        }
+    }
+    
+    &__close-user-image {
+        width: 150px;
         margin: auto;
+        @media only screen and (max-width: 480px) {
+            width: 150px;
+        }
     }
     
     &__start-btn {
@@ -52,18 +73,31 @@
         position: absolute;
         font-size: 3rem;
         font-weight: bolder;
-        right: -55px;
+        right: 0;
         top: -55px;
         transform: translateY(50%);
         z-index: 3;
         cursor: pointer;
-        color: $lightBlue;
+        color: $softPink;
         &:hover {
-            color: $softPink;
+            color: $lightBlue;
+        }
+        
+        @media only screen and (max-width: 480px) {
+            font-size: 2rem;
+            top: -55px;
         }
     }
     
-    &-open {
+    &-hide {
+        display: none;
+    }
+    
+    &-show {
         overflow: hidden;
+    }
+    
+    .pink-border {
+        border: 3px solid $softPink;
     }
 }

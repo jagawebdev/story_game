@@ -2,15 +2,31 @@
     width: 60%;
     margin: auto;
     position: relative;
+    padding: 30px 0 60px;
+    @media only screen and (max-width: 480px) {
+        width: 90%;
+    }
     
     &__body {
         min-height: 200px;
+        @media only screen and (max-width: 480px) {
+            min-height: auto;
+            padding-bottom: 25px;
+        }
+    }
+    
+    &__user-avator {
+        width: 60px;
     }
     
     &__username {
         font-size: 4rem;
         color: #FF6694;
         margin-bottom: 0;
+        margin-top: 1rem;
+        @media only screen and (max-width: 480px) {
+            font-size: 2rem;
+        }
     }
     
     &__instruction {
@@ -18,6 +34,9 @@
         font-size: 1.2rem;
         margin-top: 0;
         margin-bottom: 4rem;
+        @media only screen and (max-width: 480px) {
+            margin-bottom: 2rem;
+        }
     }
     
     &__change-btn {
@@ -31,6 +50,15 @@
         margin-top: 45px;
         &-title {
             margin: 0;
+        }
+        @media only screen and (max-width: 768px) {
+            width: 100%;
+        }
+        
+        &:last-of-type {
+            @media only screen and (max-width: 768px) {
+                margin-top: 20px;
+            }
         }
     }
     

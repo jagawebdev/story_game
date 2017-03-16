@@ -23,6 +23,9 @@ body {
     margin: 0;
     overflow-x: hidden;
     position: relative;
+    @media only screen and (max-width: 480px) {
+        font-size: 1rem;
+    }
 }
 
 .clearfix {
@@ -61,6 +64,7 @@ input {
     padding: 5px 5px;
     font-size: 1.5rem;
     color: $softPink;
+    border: 3px $softPink solid;
 }
 
 .highlight {
