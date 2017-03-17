@@ -10300,36 +10300,36 @@ return jQuery;
 var $ = __webpack_require__(0);
 var stories = __webpack_require__(6);
 
-$(document).ready(function() {
-    //json
-    for(var i = 0; i < stories.length; i++){
-        console.log(stories[i].story);
-        $(".hero__body").append('<div id="div' + i + '" class="main-div"><p>' + stories[i].story + '</p></div>');
-    }
+var view = {
+    init: function(){
+        this.createStoryContainer();
+        this.createStoryButton();
+        this.wrapEachWordInSpan();
+        this.setUpEventListeners();  
+    },
     
-    $(".hero__body").children().eq(0).addClass("active");
-    
-    for(var ii = 0; ii < $(".hero__body").children().length; ii++) {
-        var buttonNumber = ii + 1;
-        $(".visible-btns").append('<button target="'+ii+'">'+buttonNumber+'</button>');
-    }
-    
-    $(".visible-btns").children().eq(0).addClass("btn__pink");
-    
-    //buttons to display div stories
-    $(".hero__btns button").click(function(){
-        $(this).siblings().removeClass("btn__pink");
-        $(this).addClass("btn__pink");
-        $(".main-div").hide();
+    createStoryContainer: function(){
+        var heroBody = $(".hero__body");
+        for(var i = 0; i < stories.length; i++){
+            heroBody.append('<div id="div' + i + '" class="main-div"><p>' + stories[i].story + '</p></div>');
+        }
         
-        $('#div'+$(this).attr('target')).show();
+        heroBody.children().eq(0).addClass("active");
+    },
     
-        $(".hero__error-choose-word").hide();
-        $(".hero__error-not-found").hide();
-    });
+    createStoryButton: function(){
+        var visibleButtons = $(".visible-btns");
+        
+        for(var ii = 0; ii < $(".hero__body").children().length; ii++) {
+            var buttonNumber = ii + 1;
+            visibleButtons.append('<button target="'+ii+'">'+buttonNumber+'</button>');
+        }
+        
+        visibleButtons.children().eq(0).addClass("btn__pink");
+    },
     
-    //put each word in span tag
-    $(".main-div").each(function() {
+    wrapEachWordInSpan: function(){
+        $(".main-div").each(function() {
             var text = $(".main-div p").html().split(' ');
             var length = text.length;
             var result= [];
@@ -10340,61 +10340,88 @@ $(document).ready(function() {
             
             $(this).html(result.join(' '));
         });
+    },
     
-    
-    //***********VALIDATION**************//
-    $('.change-this').blur(function() {
-        if( !$(this).val() ) {
-            $(".hero__error-choose-word").show();
-            $(".hero__error-not-found").hide(); 
-        }else{
-            $(".hero__error-choose-word").hide();
-        }
-    });
-  
-
-    //When to-this input gets clicked highlight matched words
-    $(".to-this").on("click keyup", function() {
+    setUpEventListeners: function() {
+        var storyButtons = $(".hero__btns button");
+        var changeThisInput = $('.change-this');
+        var toThisInput = $(".to-this");
+        var errorChooseWord = $(".hero__error-choose-word");
+        var errorNotFound = $(".hero__error-not-found");
+        var changeButton = $(".hero__change-btn");
         
-        $(".hero__error-not-found").hide(); 
+        //Show story accordingly to button click
+        storyButtons.click(function(){
+            $(this).siblings().removeClass("btn__pink");
+            $(this).addClass("btn__pink");
+            $(".main-div").hide();
+            
+            $('#div'+$(this).attr('target')).show();
         
-        $(".highlight").removeClass("highlight");
+            errorChooseWord.hide();
+            errorNotFound.hide();
+        });
         
-        var changeThis = $(".change-this").val().toLowerCase();
-        
-        $(".main-div:visible span").filter(function() {
-            var text = $(this).text().toLowerCase();
-        
-            if(text === changeThis) {
-                 $(this).addClass("highlight");
+        //error handle
+        changeThisInput.blur(function() {
+            if( !$(this).val() ) {
+                errorChooseWord.show();
+                errorNotFound.hide(); 
+            }else{
+                errorChooseWord.hide();
             }
         });
         
-        if( !$(".main-div:visible span").hasClass("highlight")){
-            $(".hero__error-not-found").show();
-            $(".change-this").focus(); 
-        }
+        //Change-this input validation
+        toThisInput.on("click keyup", function() {
         
-        
-        if(event.keyCode === 13){
-              $(".hero__change-btn").click();
-              $(".hero__error-not-found").hide(); 
-          }
-    });
-    
-    //if change-this value matches change it to this
-    $(".hero__change-btn").on("click keyup", function() {
-        var toThis = $(".to-this").val();
-        
-        if(toThis != ''){
-            $(".main-div:visible .highlight").text(toThis); 
+            errorNotFound.hide(); 
+            
             $(".highlight").removeClass("highlight");
-        }
+            
+            var changeThis = changeThisInput.val().toLowerCase();
+            
+            $(".main-div:visible span").filter(function() {
+                var text = $(this).text().toLowerCase();
+            
+                if(text === changeThis) {
+                     $(this).addClass("highlight");
+                }
+            });
+            
+            if( !$(".main-div:visible span").hasClass("highlight")){
+                errorNotFound.show();
+                changeThisInput.focus(); 
+            }
+            
+            
+            if(event.keyCode === 13){
+                  changeButton.click();
+                  errorNotFound.hide(); 
+              }
+        });
         
-        $(".change-this").focus(); 
-        $(".hero__error-not-found").hide(); 
-        $(".hero__input-container input").val('');
-    });
+        //When change button is clicked validate to-this input value
+        changeButton.on("click keyup", function() {
+            var toThis = toThisInput.val();
+            
+            if(toThis != ''){
+                $(".main-div:visible .highlight").text(toThis); 
+                $(".highlight").removeClass("highlight");
+            }
+            
+            changeThisInput.focus(); 
+            errorNotFound.hide(); 
+            
+            changeThisInput.val('');
+            toThisInput.val('');
+        });
+    }
+    
+};
+
+$(document).ready(function() {
+    view.init();
     
     __webpack_require__(3);
 });
@@ -10431,47 +10458,78 @@ if(false) {
 
 var $ = __webpack_require__(0);
 
-$(".hero__done-btn").click(function() {
-        $("#modal-close").show().parent().addClass("modal-show"); 
-    });
-    
-    
-     $(".modal__start-btn").click(function() {
-       var userName = $(".modal__input").val();
-       
-       if(userName != ''){
-           $("#modal-open").addClass("modal-hide"); 
-           $("body").removeClass("modal-show");
-           $(".username-title").text(userName);
-       }else{
-           $(".modal__warning-msg").show();
-           $(".modal__input").focus(); 
-       }
-       
-       if($(".modal__open-user-image:first").hasClass("pink-border")) {
-            $(".hero__user-avator").html("<img src='assets/images/flowershy.png'/>");
-            $(".modal__close-user-image").html("<img src='assets/images/flowershy.png'/>");
-        }else if($(".modal__open-user-image:last").hasClass("pink-border")){
-            $(".hero__user-avator").html("<img src='assets/images/train.png'/>");
-            $(".modal__close-user-image").html("<img src='assets/images/train.png'/>");
+var greetingModal = {
+    events: function() {
+        var startButton = $(".modal__start-btn");
+        var greetingModal = $("#modal-open");
+        var userNameInput = $(".modal__input");
+        var errorUsernameMsg = $(".modal__warning-msg");
+        var modalUserAvator = $(".modal__open-user-image");
+        var heroUserAvator = $(".hero__user-avator");
+        var exitModalUserAvator = $(".modal__close-user-image");
+        var heroUserName = $(".username-title");
+        
+        
+        
+        //greeting modal input validation
+        startButton.click(function() {
+           var userName = $(".modal__input").val();
+           
+           //username validation
+           if(userName != ''){
+               greetingModal.addClass("modal-hide"); 
+               $("body").removeClass("modal-show");
+               heroUserName.text(userName);
+           }else{
+               errorUsernameMsg.show();
+               userNameInput.focus(); 
+           }
+           
+           //display user avator
+           if($(".modal__open-user-image:first").hasClass("pink-border")) {
+                heroUserAvator.html("<img src='assets/images/flowershy.png'/>");
+                exitModalUserAvator.html("<img src='assets/images/flowershy.png'/>");
+            }else if($(".modal__open-user-image:last").hasClass("pink-border")){
+                heroUserAvator.html("<img src='assets/images/train.png'/>");
+                exitModalUserAvator.html("<img src='assets/images/train.png'/>");
+            }
+        });
+        
+        //on press enter
+        userNameInput.keyup(function() {
+           if(event.keyCode === 13){
+               startButton.click();
+           } 
+        });
+        
+        //user image 
+        modalUserAvator.click(function() {
+            $(this).addClass("pink-border").siblings().removeClass("pink-border");
+        });
+        
+    }
+};
+
+var exitModal = {
+    events: function(){
+        var doneButton = $(".hero__done-btn");
+        var exitModal = $("#modal-close");
+        var exitModalCloseButton = $(".modal__close-btn");
+        
+        //show exit modal
+        doneButton.click(function() {
+            exitModal.show().parent().addClass("modal-show"); 
+        });
+        
+        //back to start
+        exitModalCloseButton.click(function() {
+             document.location.reload();
+        });
         }
-    });
-    
-    $(".modal__close-btn").click(function() {
-         document.location.reload();
-    });
-    
-    //on press enter
-    $(".modal__input").keyup(function() {
-       if(event.keyCode === 13){
-           $(".modal__start-btn").click();
-       } 
-    });
-    
-    //user image 
-    $(".modal__open-user-image").click(function() {
-        $(this).addClass("pink-border").siblings().removeClass("pink-border");
-    });
+};
+
+greetingModal.events();
+exitModal.events();
 
 /***/ }),
 /* 4 */

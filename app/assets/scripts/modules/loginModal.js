@@ -1,36 +1,36 @@
 var $ = require("jquery");
 var stories = require("../json/stories.json");
 
-$(document).ready(function() {
-    //json
-    for(var i = 0; i < stories.length; i++){
-        console.log(stories[i].story);
-        $(".hero__body").append('<div id="div' + i + '" class="main-div"><p>' + stories[i].story + '</p></div>');
-    }
+var view = {
+    init: function(){
+        this.createStoryContainer();
+        this.createStoryButton();
+        this.wrapEachWordInSpan();
+        this.setUpEventListeners();  
+    },
     
-    $(".hero__body").children().eq(0).addClass("active");
-    
-    for(var ii = 0; ii < $(".hero__body").children().length; ii++) {
-        var buttonNumber = ii + 1;
-        $(".visible-btns").append('<button target="'+ii+'">'+buttonNumber+'</button>');
-    }
-    
-    $(".visible-btns").children().eq(0).addClass("btn__pink");
-    
-    //buttons to display div stories
-    $(".hero__btns button").click(function(){
-        $(this).siblings().removeClass("btn__pink");
-        $(this).addClass("btn__pink");
-        $(".main-div").hide();
+    createStoryContainer: function(){
+        var heroBody = $(".hero__body");
+        for(var i = 0; i < stories.length; i++){
+            heroBody.append('<div id="div' + i + '" class="main-div"><p>' + stories[i].story + '</p></div>');
+        }
         
-        $('#div'+$(this).attr('target')).show();
+        heroBody.children().eq(0).addClass("active");
+    },
     
-        $(".hero__error-choose-word").hide();
-        $(".hero__error-not-found").hide();
-    });
+    createStoryButton: function(){
+        var visibleButtons = $(".visible-btns");
+        
+        for(var ii = 0; ii < $(".hero__body").children().length; ii++) {
+            var buttonNumber = ii + 1;
+            visibleButtons.append('<button target="'+ii+'">'+buttonNumber+'</button>');
+        }
+        
+        visibleButtons.children().eq(0).addClass("btn__pink");
+    },
     
-    //put each word in span tag
-    $(".main-div").each(function() {
+    wrapEachWordInSpan: function(){
+        $(".main-div").each(function() {
             var text = $(".main-div p").html().split(' ');
             var length = text.length;
             var result= [];
@@ -41,61 +41,88 @@ $(document).ready(function() {
             
             $(this).html(result.join(' '));
         });
+    },
     
-    
-    //***********VALIDATION**************//
-    $('.change-this').blur(function() {
-        if( !$(this).val() ) {
-            $(".hero__error-choose-word").show();
-            $(".hero__error-not-found").hide(); 
-        }else{
-            $(".hero__error-choose-word").hide();
-        }
-    });
-  
-
-    //When to-this input gets clicked highlight matched words
-    $(".to-this").on("click keyup", function() {
+    setUpEventListeners: function() {
+        var storyButtons = $(".hero__btns button");
+        var changeThisInput = $('.change-this');
+        var toThisInput = $(".to-this");
+        var errorChooseWord = $(".hero__error-choose-word");
+        var errorNotFound = $(".hero__error-not-found");
+        var changeButton = $(".hero__change-btn");
         
-        $(".hero__error-not-found").hide(); 
+        //Show story accordingly to button click
+        storyButtons.click(function(){
+            $(this).siblings().removeClass("btn__pink");
+            $(this).addClass("btn__pink");
+            $(".main-div").hide();
+            
+            $('#div'+$(this).attr('target')).show();
         
-        $(".highlight").removeClass("highlight");
+            errorChooseWord.hide();
+            errorNotFound.hide();
+        });
         
-        var changeThis = $(".change-this").val().toLowerCase();
-        
-        $(".main-div:visible span").filter(function() {
-            var text = $(this).text().toLowerCase();
-        
-            if(text === changeThis) {
-                 $(this).addClass("highlight");
+        //error handle
+        changeThisInput.blur(function() {
+            if( !$(this).val() ) {
+                errorChooseWord.show();
+                errorNotFound.hide(); 
+            }else{
+                errorChooseWord.hide();
             }
         });
         
-        if( !$(".main-div:visible span").hasClass("highlight")){
-            $(".hero__error-not-found").show();
-            $(".change-this").focus(); 
-        }
+        //Change-this input validation
+        toThisInput.on("click keyup", function() {
         
-        
-        if(event.keyCode === 13){
-              $(".hero__change-btn").click();
-              $(".hero__error-not-found").hide(); 
-          }
-    });
-    
-    //if change-this value matches change it to this
-    $(".hero__change-btn").on("click keyup", function() {
-        var toThis = $(".to-this").val();
-        
-        if(toThis != ''){
-            $(".main-div:visible .highlight").text(toThis); 
+            errorNotFound.hide(); 
+            
             $(".highlight").removeClass("highlight");
-        }
+            
+            var changeThis = changeThisInput.val().toLowerCase();
+            
+            $(".main-div:visible span").filter(function() {
+                var text = $(this).text().toLowerCase();
+            
+                if(text === changeThis) {
+                     $(this).addClass("highlight");
+                }
+            });
+            
+            if( !$(".main-div:visible span").hasClass("highlight")){
+                errorNotFound.show();
+                changeThisInput.focus(); 
+            }
+            
+            
+            if(event.keyCode === 13){
+                  changeButton.click();
+                  errorNotFound.hide(); 
+              }
+        });
         
-        $(".change-this").focus(); 
-        $(".hero__error-not-found").hide(); 
-        $(".hero__input-container input").val('');
-    });
+        //When change button is clicked validate to-this input value
+        changeButton.on("click keyup", function() {
+            var toThis = toThisInput.val();
+            
+            if(toThis != ''){
+                $(".main-div:visible .highlight").text(toThis); 
+                $(".highlight").removeClass("highlight");
+            }
+            
+            changeThisInput.focus(); 
+            errorNotFound.hide(); 
+            
+            changeThisInput.val('');
+            toThisInput.val('');
+        });
+    }
+    
+};
+
+$(document).ready(function() {
+    view.init();
     
     require("../modules/modal");
 });
